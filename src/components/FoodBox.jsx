@@ -1,22 +1,22 @@
-
-
-function FoodBox({food}) {
+function FoodBox({ food, deleteFood }) {
+  
+  
   return (
     <div>
-        <p>NAME</p>
-    
-        <img src="IMAGE" />
-    
-        <p>Calories: CALORIES</p>
-        <p>Servings SERVINGS</p>
-    
-        <p>
-        <b>Total Calories: SERVINGS * CALORIES </b> kcal
-        </p>
-    
-        <button>Delete</button>
-  </div>
-  )
+ 
+        <div key={food.id}>
+          <p>{food.name}</p>
+          <img src={food.image} alt={food.name} />
+          <p>Calories: {food.calories}</p>
+          <p>Servings: {food.servings}</p>
+          <p>
+            <b>Total Calories: {food.servings * food.calories} kcal</b>
+          </p>
+          <button onClick ={()=>deleteFood(food.id)} >Delete</button>
+        </div>
+
+    </div>
+  );
 }
 
-export default FoodBox
+export default FoodBox;
